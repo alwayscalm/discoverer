@@ -1,7 +1,16 @@
 package com.wjh.discoverer;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
 /**
- * Created by Administrator on 2017/11/18.
+ * @author wangjianhua on 2017/11/18.
  */
+@SpringBootApplication
+@EnableScheduling
 public class Discoverer {
+    public static void main(String[] args) {
+        SpringApplication.run(Discoverer.class,args);
+    }
 }
