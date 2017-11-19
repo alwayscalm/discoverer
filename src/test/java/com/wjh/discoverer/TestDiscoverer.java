@@ -15,6 +15,6 @@ public class TestDiscoverer {
     public static void main(String[] args) {
         log.info("#TestDiscoverer will start");
         SpringApplication.run(TestDiscoverer.class,args);
-        log.info("@TestDiscoverer start successful");
+        log.info("#TestDiscoverer start successful");
     }
 }
