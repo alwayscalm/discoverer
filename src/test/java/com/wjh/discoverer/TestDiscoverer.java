@@ -5,6 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+/**
+ * @author wangjinahua on 2017/11/19
+ */
 @SpringBootTest
 @Log4j2
 @ActiveProfiles("test")
