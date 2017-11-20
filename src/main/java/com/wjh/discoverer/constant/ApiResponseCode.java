@@ -1,7 +1,7 @@
 package com.wjh.discoverer.constant;
 
 /**
- * @author wangjianhua on 2017/11/19
+ * @author 一直很低调 on 2017/11/19
  */
 public enum ApiResponseCode {
     SUCCESS(0,"成功"),
