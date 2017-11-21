@@ -62,7 +62,7 @@ public class SwaggerConfig {
 
         List<Parameter> headers = Arrays.asList(merId, secret, sign);
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("morganStanley")
+                .groupName("discoverer")
                 .globalOperationParameters(headers)
                 .apiInfo(apiInfo())
                 .select()
