@@ -1,7 +1,6 @@
 package com.wjh.discoverer.aspect;
 
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -58,25 +57,21 @@ public class WebAspect {
      * 使用@Around貌似可以一步替代上面的两个方法
      */
     @Around(value = "webLog()")
-    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) {
+    public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object ret = null;
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        long startTime = 0L;
-        try {
-            log.info("URL : {}", request.getRequestURL().toString());
-            log.info("HTTP_METHOD : {}", request.getMethod());
-            log.info("IP : {}", request.getRemoteAddr());
-            log.info("CLASS_METHOD : {}.{}", proceedingJoinPoint.getSignature().getDeclaringTypeName(), proceedingJoinPoint.getSignature().getName());
-            log.info("ARGS : {}", Arrays.toString(proceedingJoinPoint.getArgs()));
-            startTime = System.currentTimeMillis();
-            ret = proceedingJoinPoint.proceed();
-        } catch (Throwable e) {
-            log.error("Save log has error: {}", ExceptionUtils.getMessage(e));
-        }
-        log.info("RESPONSE : {}", ret);
+
+        log.info("URL : {}", request.getRequestURL().toString());
+        log.info("HTTP_METHOD : {}", request.getMethod());
+        log.info("IP : {}", request.getRemoteAddr());
+        log.info("CLASS_METHOD : {}.{}", proceedingJoinPoint.getSignature().getDeclaringTypeName(), proceedingJoinPoint.getSignature().getName());
+        log.info("ARGS : {}", Arrays.toString(proceedingJoinPoint.getArgs()));
+        long startTime = System.currentTimeMillis();
+        ret = proceedingJoinPoint.proceed();
         log.info("SPEND TIME : {}ms", (System.currentTimeMillis() - startTime));
+        log.info("RESPONSE : {}", ret);
         return ret;
     }
 
