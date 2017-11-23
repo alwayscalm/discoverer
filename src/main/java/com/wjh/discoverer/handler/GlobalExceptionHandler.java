@@ -1,7 +1,7 @@
 package com.wjh.discoverer.handler;
 
 import com.wjh.discoverer.exception.DiscovererException;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author 一直很低调 on 2017/11/19
  * @since 1.0
  */
-@Log4j2
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(DiscovererException.class)
