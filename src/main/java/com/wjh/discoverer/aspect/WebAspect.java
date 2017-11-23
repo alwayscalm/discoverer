@@ -1,7 +1,6 @@
 package com.wjh.discoverer.aspect;
 
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.exception.ExceptionUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -17,10 +16,10 @@ import java.util.Arrays;
  * @author 一直很低调(1223271200@qq.com) on 2017/11/21
  * @since 1.0
  */
+@Slf4j
 @Aspect
 @Order(1)//值越小，优先级越高
 @Component
-@Log4j2
 public class WebAspect {
     private ThreadLocal<Long> startTime = new ThreadLocal<>();
 
